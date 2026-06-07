@@ -1,417 +1,1197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VAYUFIT | Premium Smart Ring</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* --- LUXURY DESIGN SYSTEM --- */
-        :root {
-            --bg-deep: #000000;
-            --bg-surface: #0b0b0b;
-            --bg-card: #141414;
-            --gold: #d4af37;
-            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --white: #ffffff;
-            --gray: #86868b;
-            --gray-light: #f5f5f7;
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-display: 'Playfair Display', serif;
-            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<title>VAYUFIT Smart Ring</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: var(--bg-deep);
-            color: var(--white);
-            font-family: var(--font-main);
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        /* --- UTILITIES --- */
-        .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-        
-        .btn-primary {
-            background: var(--white);
-            color: black;
-            padding: 12px 24px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: transform 0.3s;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-primary:hover { transform: scale(1.02); }
+<style>
 
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 1px solid #333;
-            padding: 12px 24px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        .btn-outline:hover { border-color: var(--white); }
+html{
+scroll-behavior:smooth;
+}
 
-        .gold-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+body{
+background:#000;
+color:#fff;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
 
-        /* --- NAV --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 100;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+img{
+max-width:100%;
+display:block;
+}
 
-        .nav-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+a{
+text-decoration:none;
+color:inherit;
+}
 
-        .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; font-family: var(--font-display); }
-        
-        .nav-links { display: flex; gap: 30px; font-size: 12px; }
-        .nav-links a { color: var(--gray); text-decoration: none; transition: 0.3s; }
-        .nav-links a:hover { color: var(--white); }
+:root{
+--blue:#2d8cff;
+--dark:#050505;
+--card:#0c0c0c;
+--border:#171717;
+--text:#c9c9c9;
+}
 
-        /* --- HERO SECTION --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
+section{
+position:relative;
+}
 
-        /* Abstract Background Glow */
-        .hero-glow {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0) 70%);
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
-            pointer-events: none;
-        }
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
 
-        .hero-tag {
-            font-size: 16px;
-            color: var(--gold);
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:80px;
+z-index:9999;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.05);
+}
 
-        .hero h1 {
-            font-size: clamp(40px, 8vw, 80px);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            max-width: 800px;
-        }
+.nav-inner{
+height:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+width:90%;
+max-width:1300px;
+margin:auto;
+}
 
-        .hero-sub {
-            font-size: 21px;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            font-weight: 400;
-        }
+.logo{
+font-family:'Syne',sans-serif;
+font-size:28px;
+font-weight:800;
+letter-spacing:3px;
+}
 
-        .hero-cta-group {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 60px;
-        }
+.logo span{
+color:var(--blue);
+}
 
-        /* Product Visual */
-        .hero-product {
-            width: 280px;
-            height: 280px;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
+.nav-btn{
+background:var(--blue);
+padding:12px 24px;
+border-radius:10px;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
 
-        .ring-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-        }
+.nav-btn:hover{
+transform:translateY(-2px);
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
+.hero{
+min-height:100vh;
+background:url("hero-ring.png") center center/cover no-repeat;
+display:flex;
+align-items:center;
+position:relative;
+}
 
-        /* --- FEATURES SCROLL --- */
-        .features-strip {
-            padding: 60px 0;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-            overflow-x: auto;
-            white-space: nowrap;
-            scrollbar-width: none;
-        }
-        
-        .features-strip::-webkit-scrollbar { display: none; }
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,0,0,.92) 25%,
+rgba(0,0,0,.45) 60%,
+rgba(0,0,0,.15) 100%
+);
+}
 
-        .feature-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0 30px;
-            font-size: 14px;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .feature-item i { color: var(--gold); }
+.hero-content{
+position:relative;
+z-index:2;
+max-width:650px;
+padding-top:80px;
+}
 
-        /* --- PRODUCT VARIANTS --- */
-        .variant-section { padding: 100px 0; text-align: center; }
-        
-        .variant-title { font-size: 48px; margin-bottom: 10px; }
-        .variant-sub { color: var(--gray); margin-bottom: 50px; }
+.hero-tag{
+display:inline-block;
+padding:10px 18px;
+border:1px solid rgba(255,255,255,.12);
+border-radius:100px;
+font-size:13px;
+margin-bottom:24px;
+color:#d9d9d9;
+}
 
-        .color-options {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
+.hero h1{
+font-family:'Syne',sans-serif;
+font-size:78px;
+line-height:0.95;
+margin-bottom:24px;
+}
 
-        .color-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.hero p{
+font-size:18px;
+line-height:1.8;
+color:#d0d0d0;
+margin-bottom:30px;
+max-width:520px;
+}
 
-        .color-btn:hover, .color-btn.active { transform: scale(1.2); border-color: var(--white); }
+.price-box{
+display:flex;
+align-items:center;
+gap:20px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
 
-        .c-black { background: #1a1a1a; border: 1px solid #333; }
-        .c-gold { background: linear-gradient(45deg, #bf953f, #fcf6ba, #aa771c); }
-        .c-pink { background: #e6c2c9; }
+.old-price{
+font-size:28px;
+color:#777;
+text-decoration:line-through;
+}
 
-        /* --- PRODUCT CARDS --- */
-        .product-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 400px;
-            margin: 0 auto;
-            position: relative;
-            transition: 0.3s;
-        }
+.new-price{
+font-size:56px;
+font-weight:800;
+font-family:'Syne',sans-serif;
+}
 
-        .product-card:hover { transform: translateY(-10px); }
+.discount{
+padding:8px 14px;
+border:1px solid rgba(45,140,255,.4);
+color:var(--blue);
+font-size:12px;
+border-radius:100px;
+}
 
-        .card-img-box {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+.shipping{
+font-size:14px;
+color:#ddd;
+margin-bottom:35px;
+}
 
-        .p-img {
-            width: 150px;
-            transition: transform 0.3s;
-        }
-        
-        .product-card:hover .p-img { transform: scale(1.1) rotate(5deg); }
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
 
-        /* --- PRICING --- */
-        .pricing-section {
-            background: var(--bg-surface);
-            padding: 100px 0;
-            text-align: center;
-            border-radius: 30px;
-            margin: 50px auto;
-            width: 90%;
-            max-width: 900px;
-        }
+.primary-btn{
+background:var(--blue);
+padding:16px 30px;
+border-radius:12px;
+font-weight:700;
+}
 
-        .price-tag {
-            font-size: 64px;
-            font-weight: 700;
-            margin: 20px 0;
-        }
+.secondary-btn{
+border:1px solid rgba(255,255,255,.15);
+padding:16px 30px;
+border-radius:12px;
+}
 
-        .strike { text-decoration: line-through; color: var(--gray); font-size: 24px; }
-        
-        .offer-badge {
-            background: var(--gold);
-            color: black;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 14px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+margin-top:90px;
+border-top:1px solid rgba(255,255,255,.08);
+padding-top:35px;
+gap:20px;
+}
 
-        .spec-list {
-            text-align: left;
-            margin: 30px auto;
-            max-width: 300px;
-            color: var(--gray);
-        }
-        
-        .spec-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .spec-list i { color: var(--gold); }
+.stat h3{
+font-size:30px;
+font-family:'Syne',sans-serif;
+margin-bottom:8px;
+}
 
-        /* --- FLOATING WA BUTTON --- */
-        .wa-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
+.stat p{
+font-size:13px;
+margin:0;
+color:#9a9a9a;
+}
 
-        .wa-float:hover { background-color: #20b858; transform: scale(1.1); }
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:99999;
+}
 
-        /* --- FOOTER --- */
-        footer { padding: 50px 0; text-align: center; border-top: 1px solid #222; margin-top: 50px; }
-        .footer-links a { color: var(--gray); margin: 0 15px; font-size: 12px; }
+.modal.active{
+display:flex;
+}
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 42px; }
-            .nav-links { display: none; }
-            .pricing-section { width: 95%; padding: 40px 20px; }
-        }
-    </style>
+.modal-box{
+width:92%;
+max-width:520px;
+background:#0b0b0b;
+border:1px solid #1b1b1b;
+padding:40px;
+border-radius:20px;
+}
+
+.modal-box h2{
+font-family:'Syne',sans-serif;
+margin-bottom:15px;
+}
+
+.whatsapp-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+background:#050505;
+border:1px solid #1b1b1b;
+margin-top:15px;
+border-radius:12px;
+}
+
+.whatsapp-btn{
+background:#25D366;
+color:#000;
+padding:12px 18px;
+border-radius:10px;
+font-weight:700;
+}
+
+.close-btn{
+margin-top:25px;
+background:#111;
+padding:12px;
+text-align:center;
+border-radius:10px;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:52px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+</style>
 </head>
 <body>
 
-    <!-- NAV -->
-    <nav>
-        <div class="container nav-flex">
-            <div class="logo">VAYUFIT</div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#specs">Specs</a>
-                <a href="#pricing">Pricing</a>
-            </div>
-        </div>
-    </nav>
+<nav class="navbar">
+<div class="nav-inner">
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-glow"></div>
-        
-        <div style="margin-bottom: 20px; width: 280px; height: 280px; position: relative;">
-            <!-- Using a high quality macro ring photography place holder that represents the product style -->
-            <img src="https://images.unsplash.com/photo-1605100804763-247f67b35579?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                 alt="VAYUFIT Smart Ring Black" 
-                 class="ring-img"
-                 id="hero-ring-img">
-        </div>
+<div class="logo">
+VAYU<span>FIT</span>
+</div>
 
-        <div class="hero-tag">Smart Fitness Ring</div>
-        <h1>Breathe Better.<br>Move Smarter.</h1>
-        <p class="hero-sub">The world's most advanced health tracker worn discreetly on your finger.</p>
-        
-        <div class="hero-cta-group">
-            <a href="#pricing" class="btn-primary">Shop Now</a>
-            <a href="#features" class="btn-outline">View Features</a>
-        </div>
-    </section>
+<div class="nav-btn" onclick="openModal()">
+Order Now
+</div>
 
-    <!-- FEATURES STRIP -->
-    <div class="features-strip" id="features">
-        <div class="feature-item"><i class="fas fa-heartbeat"></i> 24/7 HR Monitoring</div>
-        <div class="feature-item"><i class="fas fa-wind"></i> SpO2 Tracking</div>
-        <div class="feature-item"><i class="fas fa-moon"></i> Sleep Recovery</div>
-        <div class="feature-item"><i class="fas fa-brain"></i> Stress Monitoring</div>
-        <div class="feature-item"><i class="fas fa-bolt"></i> HRV Tracking</div>
-        <div class="feature-item"><i class="fas fa-tint"></i> 5ATM Waterproof</div>
-    </div>
+</div>
+</nav>
 
-    <!-- PRODUCT VARIANTS -->
-    <section class="container variant-section" id="pricing">
-        <h2 class="variant-title">Choose Your Style</h2>
-        <p class="variant-sub">Premium Titanium Alloy. Ultra-lightweight.</p>
+<section class="hero">
 
-        <div class="color-options">
-            <div class="color-btn c-black active" onclick="changeColor('black', this)" title="Obsidian Black"></div>
-            <div class="color-btn c-gold" onclick="changeColor('gold', this)" title="Luxury Gold"></div>
-            <div class="color-btn c-pink" onclick="changeColor('pink', this)" title="Rose Pink"></div>
-        </div>
+<div class="container">
 
-        <!-- PRICING CARD -->
-        <div class="pricing-section">
-            <div class="offer-badge">LAUNCH OFFER</div>
-            <div class="price-tag">₹2,999</div>
-            <div class="strike">₹4,999</div>
-            <p style="color:var(--gray); margin: 20px 0;">Free Shipping • COD Available</p>
-            
-            <a href="https://wa.me/YOURNUMBER?text=Hi%20VAYUFIT,%20I%20want%20to%20buy%20the%20Smart%20Ring" class="btn-primary" style="background: var(--gold); color: black; width: 100%; max-width: 300px;">
-                Buy Now on WhatsApp
-            </a>
+<div class="hero-content">
 
-            <ul class="spec-list">
-                <li><i class="fas fa-check"></i> Premium Titanium Build</li>
-                <li><i class="fas fa-check"></i> 24/7 Health Monitoring</li>
-                <li><i class="fas fa-check"></i> Magnetic Charging Dock</li>
-                <li><i class="fas fa-check"></i> 7-Day Battery Life</li>
-                <li><i class="fas fa-check"></i> RWFit App (iOS & Android)</li>
-                <li><i class="fas fa-check"></i> Cash on Delivery</li>
-            </ul>
-        </div>
-    </section>
+<div class="hero-tag">
+Smart Ring • Titanium Alloy • LED Display
+</div>
 
-    <!-- WHY CHOOSE -->
-    <section class="container" style="padding: 100px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-        <div>
-            <img src="https://images.unsplash.com/photo-1513116476489-76db1a70832d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=
+<h1>
+Track Your Health.<br>
+Without Wearing A Watch.
+</h1>
+
+<p>
+Monitor heart rate, blood oxygen, sleep quality, stress levels and daily activity from a lightweight smart ring designed for everyday comfort.
+</p>
+
+<div class="price-box">
+
+<div class="old-price">
+₹8,999
+</div>
+
+<div class="new-price">
+₹4,999
+</div>
+
+<div class="discount">
+44% OFF
+</div>
+
+</div>
+
+<div class="shipping">
+Free Shipping Across India
+</div>
+
+<div class="hero-buttons">
+
+<a href="#" class="primary-btn" onclick="openModal()">
+Order Now
+</a>
+
+<a href="#why" class="secondary-btn">
+Learn More
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>7+</h3>
+<p>Days Battery</p>
+</div>
+
+<div class="stat">
+<h3>IP68</h3>
+<p>Water Resistant</p>
+</div>
+
+<div class="stat">
+<h3>5ATM</h3>
+<p>Protection</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Health Tracking</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="modal" id="orderModal">
+
+<div class="modal-box">
+
+<h2>Order Your VAYUFIT Smart Ring</h2>
+
+<p>Select a sales representative on WhatsApp.</p>
+
+<div class="whatsapp-card">
+
+<div>
++91 9958195175
+</div>
+
+<a class="whatsapp-btn"
+href="https://wa.me/919958195715?text=Hi%20VAYUFIT%20Team%2C%20I%20would%20like%20to%20order%20the%20VAYUFIT%20Smart%20Ring."
+target="_blank">
+Chat
+</a>
+
+</div>
+
+<div class="whatsapp-card">
+
+<div>
++91 9311742412
+</div>
+
+<a class="whatsapp-btn"
+href="https://wa.me/919311742412?text=Hi%20VAYUFIT%20Team%2C%20I%20would%20like%20to%20order%20the%20VAYUFIT%20Smart%20Ring."
+target="_blank">
+Chat
+</a>
+
+</div>
+
+<div class="close-btn" onclick="closeModal()">
+Close
+</div>
+
+</div>
+
+</div>
+<!-- WHY VAYUFIT -->
+
+<section id="why" style="padding:120px 0;background:#050505;border-top:1px solid #111;">
+
+<div class="container">
+
+<div style="max-width:850px;margin:auto;text-align:center;">
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:58px;
+margin-bottom:25px;">
+Why VAYUFIT
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#bdbdbd;">
+Most fitness trackers sit on your wrist.
+VAYUFIT is designed to stay out of your way while keeping you connected to your health throughout the day.
+
+From heart rate and blood oxygen monitoring to sleep and stress tracking, everything works quietly in the background so you can focus on living your life.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TITANIUM SECTION -->
+
+<section style="
+min-height:100vh;
+background:url('images/titanium-alloy.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+padding:140px 0;">
+
+<div style="
+color:#2d8cff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+TITANIUM ALLOY BUILD
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Built For Daily Wear
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;
+margin-bottom:35px;">
+Crafted from titanium alloy for durability, comfort and a lightweight feel.
+Wear it at work, during workouts or while sleeping without feeling bulky on your hand.
+</p>
+
+<div style="
+display:flex;
+gap:20px;
+flex-wrap:wrap;">
+
+<div style="
+padding:18px 22px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;">
+Lightweight
+</div>
+
+<div style="
+padding:18px 22px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;">
+Scratch Resistant
+</div>
+
+<div style="
+padding:18px 22px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;">
+Everyday Comfort
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HEART RATE -->
+
+<section style="
+min-height:100vh;
+background:url('images/heart-rate.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+to right,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+padding:140px 0;">
+
+<div style="
+color:#ff4d4d;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+HEART RATE MONITORING
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Stay In Tune With Your Heart
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Track your heart rate throughout the day and gain a better understanding of your body's activity levels during work, exercise and recovery.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SPO2 -->
+
+<section style="
+min-height:100vh;
+background:url('images/spo2-monitor.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+to left,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+margin-left:auto;
+padding:140px 0;">
+
+<div style="
+color:#38a9ff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+BLOOD OXYGEN TRACKING
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Know Your Oxygen Levels
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Monitor blood oxygen saturation levels directly from your finger and keep an eye on your overall wellness throughout the day.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- HRV SECTION -->
+
+<section style="
+min-height:100vh;
+background:url('images/hrv-analysis.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+padding:140px 0;">
+
+<div style="
+color:#36d97a;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+HRV ANALYSIS
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Understand Recovery Better
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Heart Rate Variability helps you understand how your body is responding to stress, recovery and daily activity. Higher awareness can help you make smarter decisions about rest and performance.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ACTIVITY TRACKING -->
+
+<section style="
+min-height:100vh;
+background:url('images/activity-tracking.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+to left,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+margin-left:auto;
+padding:140px 0;">
+
+<div style="
+color:#50e07f;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+ACTIVITY TRACKING
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Every Step Counts
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Track movement, steps and daily activity automatically throughout the day. Whether you're at the gym, at work or on the move, VAYUFIT keeps up with your routine.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SLEEP TRACKING -->
+
+<section style="
+min-height:100vh;
+background:url('images/sleep-tracking.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+padding:140px 0;">
+
+<div style="
+color:#9d7cff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+SLEEP TRACKING
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+See How Well You Really Slept
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Track your sleep duration and nightly patterns to better understand recovery and build healthier routines over time.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STRESS MONITORING -->
+
+<section style="
+min-height:100vh;
+background:url('images/stress-monitor.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+to left,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+margin-left:auto;
+padding:140px 0;">
+
+<div style="
+color:#ff9b52;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+STRESS MONITORING
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Stay Aware Of Daily Stress
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Your body reacts to more than workouts. Monitor stress patterns and gain a clearer picture of how daily habits affect your overall wellbeing.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- WATERPROOF -->
+
+<section style="
+min-height:100vh;
+background:url('images/waterproof.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+padding:140px 0;">
+
+<div style="
+color:#4db6ff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+IP68 + 5ATM
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Built For Everyday Life
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Wear it during workouts, outdoor activities and daily routines with confidence. Designed to handle splashes, sweat and everyday exposure to water.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LED DISPLAY -->
+
+<section style="
+min-height:100vh;
+background:url('images/led-display.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+to left,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+margin-left:auto;
+padding:140px 0;">
+
+<div style="
+color:#5aa7ff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+LED TIME DISPLAY
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Time At A Glance
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Check the time instantly without pulling out your phone. Simple, convenient and always available when you need it.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MAGNETIC CHARGING -->
+
+<section style="
+min-height:100vh;
+background:url('images/magnetic-charge.png') center center/cover no-repeat;
+position:relative;">
+
+<div style="
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,0,0,.92),
+rgba(0,0,0,.55),
+rgba(0,0,0,.15)
+);"></div>
+
+<div class="container">
+
+<div style="
+position:relative;
+z-index:2;
+max-width:600px;
+padding:140px 0;">
+
+<div style="
+color:#69d0ff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:18px;">
+MAGNETIC CHARGING
+</div>
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+line-height:.95;
+margin-bottom:25px;">
+Simple Charging Experience
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.9;
+color:#d0d0d0;">
+Attach the magnetic charger and power up quickly. Designed for convenience so you spend less time charging and more time wearing it.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FINAL CTA -->
+
+<section style="
+padding:120px 0;
+background:#050505;
+text-align:center;">
+
+<div class="container">
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:72px;
+margin-bottom:20px;">
+VAYUFIT Smart Ring
+</h2>
+
+<div style="
+font-size:30px;
+color:#777;
+text-decoration:line-through;
+margin-bottom:10px;">
+₹8,999
+</div>
+
+<div style="
+font-size:80px;
+font-family:'Syne',sans-serif;
+font-weight:800;
+margin-bottom:10px;">
+₹4,999
+</div>
+
+<div style="
+display:inline-block;
+padding:10px 18px;
+border:1px solid rgba(45,140,255,.35);
+border-radius:100px;
+color:#2d8cff;
+margin-bottom:25px;">
+44% OFF
+</div>
+
+<p style="
+font-size:18px;
+color:#d0d0d0;
+margin-bottom:35px;">
+Free Shipping Across India
+</p>
+
+<a href="#"
+onclick="openModal()"
+class="primary-btn">
+Order On WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section style="
+padding:120px 0;
+background:#000;
+border-top:1px solid #111;">
+
+<div class="container">
+
+<h2 style="
+font-family:'Syne',sans-serif;
+font-size:60px;
+margin-bottom:50px;">
+Frequently Asked Questions
+</h2>
+
+<div style="margin-bottom:30px;">
+<h3 style="margin-bottom:10px;">How long does the battery last?</h3>
+<p style="color:#bdbdbd;">Up to 7 days depending on usage.</p>
+</div>
+
+<div style="margin-bottom:30px;">
+<h3 style="margin-bottom:10px;">Is it water resistant?</h3>
+<p style="color:#bdbdbd;">Yes. It features IP68 and 5ATM protection.</p>
+</div>
+
+<div style="margin-bottom:30px;">
+<h3 style="margin-bottom:10px;">Does it track sleep?</h3>
+<p style="color:#bdbdbd;">Yes. VAYUFIT tracks sleep patterns and recovery insights.</p>
+</div>
+
+<div style="margin-bottom:30px;">
+<h3 style="margin-bottom:10px;">How do I order?</h3>
+<p style="color:#bdbdbd;">Tap any Order Now button and contact our team on WhatsApp.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer style="
+padding:60px 0;
+border-top:1px solid #111;
+background:#050505;
+text-align:center;">
+
+<div class="container">
+
+<h3 style="
+font-family:'Syne',sans-serif;
+font-size:32px;
+margin-bottom:12px;">
+VAYUFIT
+</h3>
+
+<p style="color:#888;">
+Smart Ring Technology Designed For Everyday Life
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+function openModal(){
+document.getElementById("orderModal").classList.add("active");
+}
+
+function closeModal(){
+document.getElementById("orderModal").classList.remove("active");
+}
+
+</script>
+
+</body>
+</html>
